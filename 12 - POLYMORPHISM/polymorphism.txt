@@ -1,0 +1,194 @@
+method signature: quantity and types of parameters
+
+public method calcAverage(n1: Real, n2: Real): Real
+public method calcAverage(v1: Real, v2: Real) : Integer
+
+Polymorphism:
+Do something with the same name and make this thing act in different ways.
+Call the method and make it behave in different ways.
+
+Types
+
+Overriding:  It happens when we substitute a method of a superclass on its subclass using the same signature.
+SAME SIGNATURE 
+DIFFERENT CLASSES 
+
+Overloading: 
+DIFFERENT SIGNATURES 
+SAME CLASS 
+(file 13)
+
+
+Animal
+------
+weight
+age 
+members 
+
+abstract move()
+abstract feed()
+abstract makeSound()
+
+
+Mammal (extends Animal)
+coat
+
+Reptile (extends Animal)
+color
+
+Fish (extends Animal)
+color
+makeBubbles()
+
+Bird (extends Animal)
+colorFeather
+makeNest()
+
+abstract class Animal 
+  protected weight
+
+All classes below should have also the getters and setters methods, but I am not adding them here for this purpose. 
+
+=> ANIMAL CLASS 
+
+package polymorphism;
+public abstract class Animal {
+  protected float weight;
+  protected int age;
+  protected int members;
+
+  public abstract void move()
+  public abstract void feed()
+  public abstract void makeSound()
+} 
+
+=> MAMMAL CLASS
+
+package polymorphism
+public class Mammal extends Animal {
+
+  private String coat;
+
+  @Override
+  public void move() {
+    System.out.println("Running")
+  }
+
+  @Override
+  public void feed() {
+    System.out.println("Breastfeeding")
+  }
+
+  @Override
+  public void makeSound() {
+    System.out.println("Mammal sound")
+  }
+}
+
+=> REPTILE CLASS
+
+package polymorphism
+public class Reptile extends Animal {
+
+  private String color;
+
+  @Override
+  public void move() {
+    System.out.println("Crowling")
+  }
+
+  @Override
+  public void feed() {
+    System.out.println("Eating vegetables")
+  }
+
+  @Override
+  public void makeSound() {
+    System.out.println("Reptile sound")
+  }
+}
+
+=> FISH CLASS
+
+package polymorphism
+public class Fish extends Animal {
+
+  private String color;
+
+  @Override
+  public void move() {
+    System.out.println("Swimming")
+  }
+
+  @Override
+  public void feed() {
+    System.out.println("Eating stuff")
+  }
+
+  @Override
+  public void makeSound() {
+    System.out.println("No sound")
+  }
+
+  public void makeBubbles() {
+    System.out.println("Making bubbles")
+  }
+}
+
+=> BIRD CLASS
+
+package polymorphism
+public class Bird extends Animal {
+
+  private String color;
+
+  @Override
+  public void move() {
+    System.out.println("Flying")
+  }
+
+  @Override
+  public void feed() {
+    System.out.println("Eating fruits")
+  }
+
+  @Override
+  public void makeSound() {
+    System.out.println("Bird sound")
+  }
+
+  public void makeNest() {
+    System.out.println("Making a nest")
+  }
+}
+
+
+=> MAIN CLASS
+
+package polymorphism;
+public class Polymorphism {
+  public static void main(String[] args){
+    Animal a = new Animal() // this is not possible because Animal is abstract!
+    Mammal m = new Mammal()
+    Reptile r = new Reptile()
+    Fish f = new Fish()
+    Bird b = new Bird()
+
+    m.move()
+    r.move()
+    f.move()
+    b.move()
+  }
+}
+
+It will run:
+
+Running
+Crowling
+Swimming
+Flying
+
+
+
+
+

@@ -1,0 +1,230 @@
+Person
+-------
+- name
+- age
+- sex
+--------
++ celebrateBirthday()
+
+
+Book
+-------
+- title
+- author
+- totPages
+- currentPage
+- open
+- reader
+--------
++ details()
+
+<<interface>>
+Publication
+-----------
++ open()
++ close()
++ turnPage()
++ forwardPage()
++ previousPage()
+
+
+A book has one Person as reader
+A book has a Publication interface
+
+
+=> THIS IS THE MAIN CLASS
+
+package bookProject;
+public class BookProject {
+  public static void main(String[] args){
+
+  }
+}
+
+=> THIS IS THE PERSON CLASS
+
+package bookProject;
+public class Person {
+  private String name
+  private int age
+  private String sex
+
+  public void celebrateBirthday() {
+    this.age++ 
+  }
+
+  public Person(String name, int age, String sex) {
+    this.name = name
+    this.age = age
+    this.sex = sex
+  }
+
+  public String getName() {
+    return name
+  }
+
+  public void setName(String n) {
+    this.name = n
+  }
+
+  public String getAge() {
+    return age
+  }
+
+  public void setAge(int a) {
+    this.age = a
+  }
+
+  public String getSex() {
+    return sex
+  }
+
+  public void setSex(String s) {
+    this.sex = s
+  }
+}
+
+=> THIS IS THE INTERFACE
+
+package bookProject;
+public interface Publication {
+  public void open();
+  public void close();
+  public void turnPage(int p)
+  public void forwardPage()
+  public void previousPage()
+}
+
+=> THIS IS THE BOOK CLASS
+
+package bookProject;
+public class Book implements Publication  {
+  private String title, author
+  private int totPages
+  private int currentPage
+  private boolean open
+  private Person reader
+
+  public void details() {
+    // we can erase everything and generate a new method (right click) called toString. It will generate:
+    @Override
+    public String toString() {
+      return "Book{"title=" + title 
+      + "\n author=" + author
+      + "\n totPages=" + totPages
+      + "\n currentPage=" + currentPage
+      + "\n open=" + open
+      + "\n reader=" + reader.getName() + '}'
+      }
+    // we can remove the override and rename the toString method to the name we want (details)
+    }
+  }
+
+  public Book(String title, String author, int totPages, Person reader) {
+    this.title = title
+    this.author =  author
+    this.totPages = totPages
+    this.open = false
+    this.currentPage = 0
+    this.reader = reader
+  }
+
+  public String getTitle() {
+    return title
+  }
+
+  public void setTitle(String t){
+    this.title = t
+  }
+
+  public String getAuthor() {
+    return author
+  }
+
+  public void setAuthor(String a){
+    this.author = a
+  }
+
+  public boolean getTotPages() {
+    return totPages
+  }
+
+  public void setTotPages(int tp){
+    this.totPages = tp
+  }
+
+  public boolean getCurrentPage() {
+    return currentPage
+  }
+
+  public void setCurrentPage(int cp){
+    this.currentPage = cp
+  }
+
+  public boolean isOpen() {
+    return open
+  }
+
+  public void setOpen(boolean o){
+    this.open = o
+  }
+
+  public Person getReader() {
+    return reader
+  }
+
+  public Person setReader(String r){
+    this.reader = r
+  }
+
+  @Override
+  public void open() {
+    this.open = true
+  }
+
+  @Override
+  public void close() {
+    this.open = false
+  }
+
+  @Override
+  public void turnPage(int p) {
+    if (p> this.totPages) {
+      this.currentPage = 0
+    } else {
+      this.currentPage = p
+    }
+  }
+
+  @Override
+  public void forwardPage() {
+    this.currentPage++
+  }
+
+  @Override
+  public void previousPage() {
+    this.currentPage--
+  }
+}
+
+
+=> BACK TO THE MAIN CLASS
+
+package bookProject;
+public class BookProject {
+  public static void main(String[] args){
+    Person[] p = new Person[2]
+    Book[] b = new Book[3]
+
+    p[0] = new Person("Greyce", 32, "F")
+    p[1] = new Person("Jean", 32, "M")
+
+    l[0] = new Book("Learning Java", "José da Silva", 300, p[0] )
+    l[1] = new Book("P00 for beginners", "Pedro Paulo", 500, p[1] )
+    l[2] = new Book("Advanced Java", "Maria Candido", 800, p[0] )
+
+
+
+
+  }
+}

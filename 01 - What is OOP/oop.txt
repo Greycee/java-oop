@@ -1,0 +1,19 @@
+Origin Object Oriented Programming
+
+* Low-level programming 
+* Linear programming
+* Structured programming
+* Modular programming
+* Object Oriented Programming (designed by Alan Kay/first language: Smalltalk)
+
+Advantages:
+
+* Reliable: Isolating parts generates a secure software. When changing one piece of code, no other is affected.
+* Timely: By dividing everything into parts, several of them can be developed in parallel.
+* Easy maintenance: Updating a software is easier. A small modification will benefit all the parts using the object.
+* Extensible: A software is not static. It must grow to remain useful.
+* Reusable: We can use an object from a system that we created in another future system.
+* Natural: Easier to understand. You care more about functionality than implementation details.
+
+
+In order to code in Java, we must install JDK and Netbeans.

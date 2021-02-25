@@ -1,0 +1,166 @@
+Encapsulation
+
+Mechanism of wrapping the data (attributes) and code acting on the data (methods) together as a single unit. In encapsulation, the variables of a class will be hidden from other classes, and can be accessed only through the methods of their current class. 
+
+It protects the attributes and methods of a class, making them to communicate with the external environment only through their interfaces.
+
+When we use the concept of encapsulation, while the 
+IMPLEMENTATION defines the internal details of a component, an INTERFACE lists the services provided by it.
+
+It makes the changes to be invisible.
+It makes it easier to reuse code.
+It reduces the side effects.
+
+Interface
+
+List of services provided by a component. It is the contact with the external world that defines what can be done with the objects of that class. 
+* It has only methods. -  all public 
+
+When we encapsulate, on the class we make all the atributes private.
+
+
+package project03;
+public class Project03 {
+  public static void main(String[] args){
+  }
+}
+
+On Netbeans: project, click on the package, new, Java interface
+
+package project03;
+public interface Controller {
+  public abstract void turnOn();
+  public abstract void turnOff();
+  public abstract void openMenu();
+  public abstract void closeMenu();
+  public abstract void increaseVol();
+  public abstract void lowerVol();
+  public abstract void muteOn();
+  public abstract void muteOff();
+  public abstract void play();
+  public abstract void pause();
+}
+
+project, click on the package, new, Java class
+
+package project03;
+public class RemoteControl implements Controller {
+  private int volume;
+  private boolean on;
+  private boolean playing;
+
+  public RemoteControl() {
+    this.volume = 50;
+    this.on = false;
+    this.playing = false;
+  }
+
+  private int getVolume() {
+    return volume;
+  }
+
+  private void setVolume(int volume){
+    this.volume = volume;
+  }
+
+  private boolean isOn() {
+    return on;
+  }
+
+  private void setOn(boolean on){
+    this.on = on
+  }
+
+  private boolean isPlaying() {
+    return playing;
+  }
+
+  private void isPlaying(boolean playing) {
+    this.playing = playing
+  }
+
+  //the interface can be implemented automatically
+
+  @Override
+  public void turnOn() {
+    this.setOn(true);
+  }
+
+  @Override
+  public void turnOff() {
+    this.setOn(false);
+  }
+
+  @Override
+  public void openMenu() {
+    System.out.println("Is it on? " + this.isOn())
+    System.out.println("Is playing? " + this.isPlaying())
+    System.out.print("Volume: " + this.getVolume())
+    for (int i = 0; i <= this.getVolume(); i+=1) {
+      System.out.print("|")
+    }
+  }
+
+  @Override
+  public void closeMenu() {
+    System.out.println("Closing menu...")
+  }
+
+  @Override
+  public void increaseVol() {
+    if (this.isOn()) {
+      this.setVolume(this.getVolume() + 1)
+    }
+  }
+
+  @Override
+  public void lowerVol() {
+    if (this.isOn()) {
+      this.setVolume(this.getVolume() - 1)
+    }
+  }
+
+  @Override
+  public void muteOn() {
+    if (this.isOn() && this.getVolume() > 0) {
+      this.setVolume(0)
+    }
+  }
+
+  @Override
+  public void muteOff() {
+    if (this.isOn() && this.getVolume() = 0) {
+      this.setVolume(50)
+    }
+  }
+
+  @Override
+  public void play() {
+    if (this.isOn() && !(this.isPlaying())) {
+      this.setPlaying(true);
+    }
+  }
+
+  @Override
+  public void pause() {
+    if (this.isOn() && this.isPlaying()) {
+      this.setPlaying(false);
+    }
+  }
+}
+
+
+on the mais class we can use the methods:
+
+package project03;
+public class Project03 {
+  public static void main(String[] args){
+    RemoteControl r = new RemoteControl();
+    c.turnOn();
+    c.increaseVol();
+    c.muteOn();
+    c.openMenu();
+    c.closeMenu();
+  }
+}
+

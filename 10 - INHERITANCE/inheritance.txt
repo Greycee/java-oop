@@ -1,0 +1,34 @@
+Inheritance
+
+It allows to base a new class on the definition of another class existing previously.
+
+  It applies for the characteristics and for the behaviors.
+
+  Student          Teacher         Staff Member
+  - name           - name          - name
+  - age            - age           - age
+  - sex            - sex           - sex 
+  - register       - subject       - area
+  - course         - salary        - working
+
+ + celebBday()     + celebBday()   + celebBday()
+ + cancRegist()    + getRaise()    + changeRole()
+
+ Through inheritance we generate a new class with the common atribuites and methods and keep only the specific ones on the other classes:
+
+
+Person          Student          Teacher         Staff Member
+- name          - register       - subject       - area
+- age           - course         - salary        - working 
+- sex            
+ 
++ celebBday()    cancRegist()    + getRaise()    + changeRole()
+
+
+Now we can say that the Student class extends Person, the teacher class extends Person and the Staff Member class extends Person.
+
+Person is the mother class (superclass) and Student, Teacher and Staff Member are the children (subclasses). 
+
+ 
+ 
+

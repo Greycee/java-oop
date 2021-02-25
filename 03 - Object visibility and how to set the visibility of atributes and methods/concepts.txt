@@ -1,0 +1,44 @@
+Visibility
+
++ Public -> that class and all the other classes have access
+- Private -> just that class have access 
+# Protected -> that class and their subclasses
+
+
+Adding visibility to the class: 
+
+package project1;
+public class Pen{
+  public String model;
+  public String color;
+  private float tip;
+  protected int refill;
+  private boolean isLidOn;
+
+  public void status() {
+    // ...
+  }
+
+  public void scribble() {
+    // ...
+  }
+
+  public void addLid() {
+    this.isLidOn = true
+  }
+  
+  public void removeLid() {
+    this.isLidOn = false
+  }
+}
+
+Running the code: 
+
+package project1;
+public class Project1 {
+  public static void main(String[] args){
+    Pen p1 = new Pen();
+    p1.isLidOn = false  // I can't do this because isLidOn is private
+    p1.removeLid() // I can do this because the removeLid method is public although it contains its private attribute.
+  }
+}

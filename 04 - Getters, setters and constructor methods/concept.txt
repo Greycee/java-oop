@@ -1,0 +1,66 @@
+Getter: It gives access to an attribute without giving direct access to the object. 
+
+Setter: They modify things inside the object granting a total security of it. Usually it requires a parameter. 
+
+Every attribute on a class requires a getter and a setter method.
+
+Constructor method: Every time a new object is created it executes all that is defined on the constructor method.
+
+package project01;
+public class Pen {
+  public string model;
+  private float tip;
+  private string color;
+  private boolean lidOn;
+
+  //constructor method
+  public Pen (String m, String c, float t) {
+    this.model = m;
+    this.color = c;
+    this.tip = t
+    this.addLid();
+  }
+
+  public void getModel() {
+    return this.model;
+  }
+
+  public void setModel(String m) {
+    this.model = m;
+  }
+
+  public float getTip() {
+    return this.tip;
+  }
+
+  public void setTip(float t){
+    this.tip = t;
+  }
+
+  public void addLid() {
+    this.lidOn = true
+  }
+
+  public void removeLid() {
+    this.lidOn = false
+  }
+}
+
+without constructor:
+package project01;
+public class Project01 {
+  public static void main(String[] args) {
+    Pen p1 = new Pen();
+    p1.setModel("Bic");
+    p1.setTip(0.5f); // I can use setTip to change the tip but I can't do it like p1.tip = 0.5f because tip is a private atribute.
+  }
+}
+
+package project01;
+public class Project01 {
+  public static void main(String[] args) {
+    Pen p1 = new Pen("Bic", "Black", 0.4f);
+  }
+}
+
+Shortcut:  ctrl + i = it allows us to automatically generate the constructor, getter and setters 

@@ -1,0 +1,110 @@
+Object
+
+Material and abstract things that can be perceived and described through its 
+* characteristics (atributes),
+* behaviors (methods),
+* current state
+
+Class: defines the atributes and methods shared by an object. It deals with relationships between classes and their subclasses - inheritance - they are static, fixed at compile time.
+
+Object is an instance of a class
+
+Abstraction: Ignores all the atributes that are not important in a class. Hides all but the relevant data about an object in order to reduce complexity and increase efficiency. 
+
+How to create classes and objects in Java:
+
+Netbeans: 
+New project, 
+Choose Java - Java Application, 
+Give the project a name, 
+Let all the options checked,
+It then generates the package that looks like this - This is the class with the method main:
+
+package project1;
+public class Project1 {
+  public static void main(String[] args){
+  }
+}
+
+In order to create a class: 
+
+click on the package name on the left side (yellow package),
+New - Java class,
+Give the class a name - every class starts with an uppercase letter
+
+Adding the atributes and methods to it, it looks like this:
+
+package project1;
+public class Pen{
+  String model;
+  String color;
+  float tip;
+  int refill;
+  boolean isLidOn;
+
+  void status() {
+    System.out.println(this.color + "pen");
+    System.out.println("Model: " + this.model);
+    System.out.println("Tip: " + this.tip);
+    System.out.println("Refill: " + this.refill);
+    System.out.println("Is with the lid on? " + this.isLidOn);
+  }
+
+  void scribble() {
+    if (this.isLidOn){
+      System.out.println("Error! I can't scribble because the lid is on!");
+    } else {
+      System.out.println("I am scribbling some stuff!");
+    }
+  }
+
+  void addLid() {
+    this.isLidOn = true
+  }
+  
+  void removeLid() {
+    this.isLidOn = false
+  }
+}
+
+How to instantiate an object:
+On the main class:
+
+package project1;
+public class Project1 {
+  public static void main(String[] args){
+    Pen p1 = new Pen()
+    p1.color = "Blue";
+    p1.tip = 0.5f;
+    p1.addLid();
+
+    p1.status();
+    p1.scribble()
+
+    Pen p2 = new Pen()
+    p2.model = "Bic";
+    p2.color = "Red";
+    p2.tip = 0.7f;
+    p2.removeLid();
+
+    p2.status();
+    p2.scribble()
+  }
+}
+
+When pressing run the program generates:
+
+Blue pen 
+Model: null
+Tip: 0.5
+Refill: 0
+Is with the lid on? true
+Error! I can't scribble because the lid is on!
+
+Red pen 
+Model: Bic
+Tip: 0.7
+Refill: 0
+Is with the lid on? false
+I am scribbling some stuff!
+

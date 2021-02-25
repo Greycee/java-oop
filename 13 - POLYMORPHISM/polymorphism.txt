@@ -1,0 +1,46 @@
+Overloading: Methods with the same name with different signatures in the same class
+
+
+Mammal react()
+ ↑
+Wolf react()
+ ↑
+Dog
+
+react()
+
+say sentence 
+------------
+pleasant: shake the tail
+aggressive: growl
+
+time of the day
+---------------
+morning: shake
+afternoon: shake and bark
+night: ignore
+
+owner
+------
+is owner: shake
+is not the owner: growl and bark
+
+age and weight
+-------------
+young and light: shake
+young and heavy: bark
+old and light: growl
+old and heavy: ignore
+
+
+
+=> DOG CLASS  
+
+package polymorphism;
+public class Dog extends Wolf {
+  public void react(String sentence) {}
+  public void react(int hour, int min) {}
+  public void react(boolean owner) {}
+  public void react(int age, float weight) {}
+  }
+} 

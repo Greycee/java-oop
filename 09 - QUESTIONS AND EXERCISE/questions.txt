@@ -1,0 +1,43 @@
+Q: A house is for its blueprint as the object is for ...
+A: A class
+
+----
+
+Q: POO concerns about developing software with the following characteristics:
+A: natural, reliable, reusable, easy maintenance, extensible and timely.
+
+----
+
+BEHAVIOR: Action executed by an object
+CLASS: It defines the common atributes and methods. 
+It defines the shared atributes and behaviors. 
+ATRIBUTE: Characteristic of a class that is visible
+OBJECT: Software development that encapsulates state and behavior.
+It is the instantiation of a class. 
+DOMAIN: Where the problem lives 
+CONSTRUCTOR: Methods used to initiate objects during the instantiation.
+It is used to initiate objects.
+ACCESSOR: Methods that give access to internal data
+MUTANT:Methods that allow the change of state of an object
+TYPES: Defines the different values that can be used
+INTERFACE: It defines what an entity can do with the object.
+ENCAPSULATION: It protects the attributes and methods of a class, making them to communicate with the external environment only through their interfaces.
+ABSTRACTION: represents an entity including only the most relevant attributes. 
+
+----
+
+An internal variable is a value that is kept inside the object.
+Attributes are characteristics of a class that are visible from outside.
+A state of an object is the combined meaning of internal variables of the object. 
+
+----
+
+Q: What are the 3 pilars of OOP?
+A: Encapsulation, Inheritance and polimorphism
+
+----
+
+When we use the concept of encapsulation, while the 
+IMPLEMENTATION defines the internal details of a component, an INTERFACE lists the services provided by it.
+
+

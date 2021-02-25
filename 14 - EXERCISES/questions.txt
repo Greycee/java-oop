@@ -1,0 +1,33 @@
+In JAVA we can say:
+The compiler provides a standard constructor without parameters in any class that does not explicitly include a constructor.
+
+-----------
+
+INHERITAGE: A way to reuse software is creating a class that absorbs members of another existing class. The new class is improved with new capacities or modified. 
+
+-----------
+
+        Format 
+           ↑
+      NumberFormat
+        ↑       ↑
+ChoiceFormat   DecimalFormat
+
+DecimalFormat is descendant of Format
+
+--------------
+
+Providing a proper superclass from where other classes can inherit and share a common design is the purpose of: 
+An abstract class
+
+---------
+
+Abstract method is: 
+declared but not implemented
+
+--------
+
+Inheritance makes it possible to estabilish a "IS ONE" relationship between classes. 
+
+---------
+

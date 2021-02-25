@@ -1,0 +1,109 @@
+Agregation: "HAS one" relationship
+a Fight has one Fighter
+
+UML: solid line with a white diamond
+
+
+Fight
+
+- adversary01 // it will be an instance of the Fighter class
+- adversary02 // it will be an instance of the Fighter class
+- rounds
+- approved
+
++ scheduleFight()
++ fight()
+
+Inside the previous package (Combat), right click on the package, new, new class, give the name of Fight
+
+package combat;
+import java.util.Random
+public class Fight {
+  private Fighter adversary01;
+  private Fighter adversary02;
+  private int rounds;
+  private boolean approved;
+
+  public void scheduleFight(Fighter f1, Fighter f2) {
+    if (f1.getCategory() == f2.getCategory() && f1 != f2){
+      this.approved = true;
+      this.adversary01 = f1;
+      this.adversary02 = f2;
+    } else {
+      this.approved = false;
+      this.adversary01 = null;
+      this.adversary02 = null;
+    }
+  }
+
+  public void fight() {
+    if (this.approved) {
+      this.adversary01.present()
+      this.adversary02.present()
+
+      Random aleatory = new Random()
+      int winner = aleatory.nextInt(3)
+      switch(winner) {
+        case 0:
+          System.out.println("It's a draw!")
+          this.adversary01.drawFight()
+          this.adversary02.drawFight()
+          break
+        case 1
+          System.out.println(this.adversary01.getName() + " fighter 01 won!")
+          this.adversary01.winFight()
+          this.adversary02.loseFight()
+          break
+        case 2
+          System.out.println(this.adversary01.getName() + "fighter 02 won!")
+          this.adversary01.loseFight()
+          this.adversary02.winFight()
+          break
+      }
+    } else {
+      System.out.println("This fight can't happen!")
+    }
+  }
+
+  public Fighter getAdversary01() {}
+  
+  public void setAdversary01(Fighter adversary01) {
+    this.adversary01 = adversary01
+  }
+
+  public Fighter getAdversary02() {}
+
+  public void setAdversary02(Fighter adversary02) {
+    this.adversary02 = adversary02
+  }
+
+  public boolean getRounds() {}
+
+  public void setRounds(int rounds){
+    this.rounds = rounds
+  }
+
+  public boolean isApproved() {
+    return approved
+  }
+
+  public void setApproved(boolean approved){
+    this.approved = approved
+  }
+}
+
+
+
+package combat;
+public class Combat {
+  public static void main(String[] args){
+    Fighter f[] = new Fighter[6]
+    f[0] = new Fight("Angry boy", "France", 31, 1.75f, 68.9f, 11, 2, 1)
+    f[1] = new Fight("Putscript", "Brazil", 29, 1.68f, 57.8f, 14, 2, 3)
+    ...
+
+    Fight UFC01 = new Fight()
+    UFC01.scheduleFight(l[0], l[1])
+    UFC01.fight() // it will present the fighters and make them fight. It will randomly chose who is going to win (or if it is a draw) and update the status of each fighter 
+  }
+}

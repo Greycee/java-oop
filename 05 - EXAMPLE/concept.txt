@@ -1,0 +1,156 @@
+
+BankAccount
+
++ accountNum
+# type - SA (savings account earns R$ 150) & CA (current account earns R$ 50)
+- owner
+- balance
+- status
+
++ openAccount()
++ closeAccount()
++ deposit()
++ withdraw()
++ payFee() (savings account pays R$ 20) & CA (current account pays R$ 12)
+
+constructor: new account starts with status false and balance 0
+
+
+** CREATION: **
+
+package bankAccount;
+public class BankAccount{
+  public int accountNum;
+  protected String type;
+  private String owner;
+  private float balance;
+  private boolean status;
+
+  public void currentState() {
+    System.out.println("Account: " + this.getAccountNum)
+    System.out.println("Type: " + this.getType)
+    System.out.println("Owner: " + this.getOwner)
+    System.out.println("Balance: " + this.getBalance)
+    System.out.println("Status: " + this.getStatus)
+  }
+
+  public BankAccount {
+    this.setBalance(0);
+    this.setState(false)
+  }
+
+   public int getAccountNum() {
+    return this.accountNum
+  }
+
+   public void setAccountNum(int n) {
+    this.accountNum = n
+  }
+
+  public String getType() {
+    return this.type
+  }
+
+  public void setType(String t) {
+    this.type = t
+  }
+
+  public String getOwner() {
+    return this.getOwner
+  }
+
+  public void setOwner(String o) {
+    this.owner = o
+  }
+
+  public float getBalance() {
+    return this.balance
+  }
+
+  public void setBalance(float b) {
+    this.balance = b
+  }
+
+  public void getStatus() {
+    return this.status
+  }
+
+  public void setStatus(Boolean s) {
+    this.status = s
+  }
+
+
+  public void openAccount(String t) {
+    this.setType(t)
+    this.setStatus = true
+    if (t == CA) {
+      this.setBalance = 50
+    }
+    else if (t == SA) {
+      this.setBalance = 150
+    }
+
+  public void closeAccount() {
+    if (this.getBalance > 0) {
+      System.out.println("You need to withdraw first!")
+    } else if {
+      System.out.println("Negative balance. Please check before closing account.");
+    } else {
+      this.setStatus = false
+      System.out.println("You have sucessfully closed the account!")
+    }
+  }
+
+  public void deposit(float v) {
+    if (this.getStatus()) {
+      this.setBalance(this.getBalance() + v)
+    } else {
+      System.out.println("Impossible to make a deposit");
+    }
+  }
+
+  public void withdraw(float v) {
+    if (this.getStatus()) {
+      if( this.getBalance() >= v){
+        this.setBalance(this.getBalance() - v)
+      } else {
+      System.out.println("Impossible withdraw");
+    } else {
+      System.out.println("Inexistent or invalid account");
+    }
+  }
+
+  public void payFee() {
+    int v = 0
+    if (this.getType() == "CA) {
+      V = 12
+    } else if (this.getType() == "SA") {
+      V = 20
+    }
+    if this.getStatus()) {
+      this.setBalance(this.getBalance() - v)
+    } else {
+      System.out.println("Impossible to pay the fee")
+    }
+  }
+}
+
+MAIN CLASS:
+
+package project02;
+public class Project02 {
+  public static void main(String[] args){
+    BankAccount c1 = new BankAccount()
+    c1.setAccountNum(11111);
+    c1.setOwner("João");
+    c1.openAccount("CA");
+    c1.deposit(100)
+  }
+}
+
+It returns: 
+Account: 11111
+Type: CA
+Owner: João
+Balance: 150.0
+Status: true
